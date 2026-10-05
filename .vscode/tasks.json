@@ -1,0 +1,31 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar (Release)",
+            "type": "shell",
+            "command": "${workspaceFolder}\\build.bat",
+            "options": { "cwd": "${workspaceFolder}", "shell": { "executable": "cmd.exe", "args": ["/d", "/c"] } },
+            "problemMatcher": ["$gcc"],
+            "group": { "kind": "build", "isDefault": true },
+            "presentation": { "reveal": "always", "clear": true }
+        },
+        {
+            "label": "Compilar (Debug)",
+            "type": "shell",
+            "command": "${workspaceFolder}\\build.bat debug",
+            "options": { "cwd": "${workspaceFolder}", "shell": { "executable": "cmd.exe", "args": ["/d", "/c"] } },
+            "problemMatcher": ["$gcc"],
+            "group": "build",
+            "presentation": { "reveal": "always", "clear": true }
+        },
+        {
+            "label": "Ejecutar",
+            "type": "shell",
+            "command": "${workspaceFolder}\\bin\\Editor3D.exe",
+            "options": { "cwd": "${workspaceFolder}", "shell": { "executable": "cmd.exe", "args": ["/d", "/c"] } },
+            "dependsOn": "Compilar (Release)",
+            "problemMatcher": []
+        }
+    ]
+}
